@@ -31,4 +31,9 @@ ___
 
 ---
 
+### ToDo ###
+
+Während der Ausführung wird die Ausgabe noch nicht korrekt aktualisiert.
+
+
 * Idee und Realisierung der ersten Version: [concedra.de / Oliver Kreischer](http://concedra.de) // [Wolfgang Bund](https://github.com/dtpop) // [Tim Filler](https://github.com/elricco)
