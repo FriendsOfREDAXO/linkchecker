@@ -1,0 +1,16 @@
+package: linkchecker
+version: '0.0.beta'
+author: Oliver Kreischer, Wolfgang Bund, Tim Filler
+
+page:
+    title: translate:linkchecker_title
+    perm: linkchecker[params]
+    icon: rex-icon fa-chain-broken
+    pjax: false
+    subpages:
+        settings: { title: translate:linkchecker_einstellungen, perm: admin }
+        crawler: { title: translate:linkchecker_crawler }
+        info: { title: translate:linkchecker_info }
+
+requires:
+    redaxo: '^5.5'
