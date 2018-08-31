@@ -1,7 +1,7 @@
 ### Linkchecker ###
 
 
-Hier eine kurze Anleitung schreiben. 
+Hier eine kurze Anleitung schreiben.
 Aber erst wenn alle Grundfunktionen fertig sind :-)
 
 Infos zu Statuscodes: https://de.wikipedia.org/wiki/HTTP-Statuscode
@@ -24,7 +24,6 @@ Während der Ausführung wird die Ausgabe noch nicht korrekt aktualisiert.
 **Projekt-Lead**
 
 * [Oliver Kreischer](https://github.com/olien)
-
 
 ___
 
