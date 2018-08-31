@@ -11,6 +11,7 @@ $config = rex_request('config', array(
     array('baselink', 'string'),
     array('depth', 'string'),
     array('maxlinks', 'string'),
+    array('no200', 'int'),
     array('submit', 'boolean'),
 ));
 
@@ -20,6 +21,7 @@ if ($config['submit']) {
     $this->setConfig('baselink',$config['baselink']);
     $this->setConfig('depth',$config['depth']);
     $this->setConfig('maxlinks',$config['maxlinks']);
+    $this->setConfig('no200',$config['no200']);
     $form .= rex_view::info('Werte gespeichert');
 }
 
@@ -63,6 +65,16 @@ $formElements[] = $n;
 $fragment->setVar('elements', $formElements, false);
 $form .= $fragment->parse('core/form/container.php');
 
+
+// Maximale Anzahl an Links
+$formElements = [];
+$n = [];
+$n['label'] = '<label for="linkchecker-no200">Keine 200er ausgeben</label>';
+$n['field'] = '<input type="checkbox" id="linkchecker-no200" name="config[no200]" value="1" ' . ($this->getConfig('no200') ? ' checked="checked"' : '') . ' />';
+$n['note'] = 'Funktioniert noch nicht!';
+$formElements[] = $n;
+$fragment->setVar('elements', $formElements, false);
+$form .= $fragment->parse('core/form/container.php');
 
 
 $form .= '</fieldset>';

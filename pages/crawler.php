@@ -13,8 +13,8 @@ if ($config['submit']) {
                     <div class="panel-body">';
                     $linkchecker = new linkchecker();
                     $linkchecker->run();
-    echo '  </div>
-        </div>
+    echo '          </div>
+                </div>
     </section>';
 
 

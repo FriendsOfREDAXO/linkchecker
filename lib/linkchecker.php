@@ -8,6 +8,7 @@ class linkchecker {
     private $baselink = '';
     private $maxdepth = 0;
     private $maxlinks = 0;
+    private $no200    = 0;
     private $base = '';             // wird pro zu spidernder Seite gemäß deren base href oder dem baselink gefüllt
     private $real_root = '';        // scheme + server aus der config
     private $links_checked = [];    // wird gefüllt mit den gecheckten Links und Ergebnissen
@@ -17,13 +18,13 @@ class linkchecker {
         $this->baselink = rex_config::get('linkchecker','baselink');
         $this->maxlinks = rex_config::get('linkchecker','maxlinks');
         $this->maxdepth = rex_config::get('linkchecker','depth');
-        
+        $this->no200    = rex_config::get('linkchecker','no200');
+
         $parsed_root = parse_url($this->baselink);
         $this->real_root = $parsed_root['scheme'] . '://' . $parsed_root['host'] . '/';
         
     }
-    
-    
+
     public function run () {
 //        error_reporting(0);
         $this->crawl_page($this->baselink);
@@ -130,6 +131,7 @@ class linkchecker {
         $fragment->setVar('alink', $alink);
         $fragment->setVar('status_code', $status_code);
         echo $fragment->parse('loglink.php');
+
         /*
         while (@ob_get_status()) {
             @ob_end_flush();            
@@ -146,11 +148,11 @@ class linkchecker {
      * @param type $link
      */
     private function log_page ($link,$message = '') {
-        echo '<h4>Aktuelle Seite: <a href="'.$link.'" target="_blank">'.$link.'</a></h4>';
+        echo '<h3 class="linkchecker_current_page">Aktuelle Seite: <a href="'.$link.'" target="_blank">'.$link.'</a></h3>';
         if ($message) {
-            echo '<p>'.$message.'</p>';
+            echo '<p class="linkchecker_message">'.$message.'</p>';
         }
-        echo '<p>Tiefe: '.$this->depth.'</p>';
+        echo '<p class="linkchecker_depth">Tiefe: '.$this->depth.'</p>';
     }
     
     
